@@ -2,6 +2,7 @@ package com.mohamedhashim.circula.ui.component.pokemons
 
 import android.os.Bundle
 import android.view.*
+import androidx.navigation.fragment.findNavController
 import com.mohamedhashim.circula.R
 import com.mohamedhashim.circula.data.dto.Pokemon
 import com.mohamedhashim.circula.databinding.FragmentPokemonListBinding
@@ -49,10 +50,10 @@ class PokemonListFragment : DataBindingFragment(), PokemonViewholder.Delegate {
     }
 
     override fun onItemClick(view: View, pokemon: Pokemon) {
-//        findNavController().navigate(
-//            R.id.actionPokemonDetails,
-//            MainViewModel.createArguments(pokemon)
-//        )
+        findNavController().navigate(
+            R.id.actionPokemonDetails,
+            PokemonListViewModel.createArguments(pokemon)
+        )
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
