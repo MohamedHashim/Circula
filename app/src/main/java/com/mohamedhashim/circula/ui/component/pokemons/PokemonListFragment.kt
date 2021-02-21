@@ -55,10 +55,4 @@ class PokemonListFragment : DataBindingFragment(), PokemonViewholder.Delegate {
             PokemonListViewModel.createArguments(pokemon)
         )
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-//        (activity as AppCompatActivity).setSupportActionBar(view?.findViewById(R.id.topAppBar))
-
-    }
 }
