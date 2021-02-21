@@ -2,7 +2,6 @@ package com.mohamedhashim.circula.ui.component.pokemons
 
 import android.os.Bundle
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.mohamedhashim.circula.data.dto.Pokemon
 import com.mohamedhashim.circula.data.remote.repository.PokemonRepository
 import com.mohamedhashim.circula.ui.base.LiveCoroutinesViewModel
@@ -14,13 +13,8 @@ class PokemonListViewModel constructor(
     private val pokemonRepository: PokemonRepository
 ) : LiveCoroutinesViewModel() {
 
-    var pokemonListLiveData: LiveData<List<Pokemon>>
-
-    init {
-        this.pokemonListLiveData =
-            launchOnViewModelScope {
-                this.pokemonRepository.loadPokemonList {}
-            }
+    var pokemonListLiveData: LiveData<List<Pokemon>> = launchOnViewModelScope {
+        this.pokemonRepository.loadPokemonList {}
     }
 
     companion object {

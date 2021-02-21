@@ -22,8 +22,6 @@ android {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
             }
         }
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -97,8 +95,13 @@ dependencies {
     implementation "androidx.room:room-runtime:2.2.6"
     kapt "androidx.room:room-compiler:2.2.6"
 
+    // timber
     implementation "com.jakewharton.timber:timber:4.7.1"
 
+    //leakCanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
+
+    // unit & UI testing
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

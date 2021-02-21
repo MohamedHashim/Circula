@@ -45,5 +45,5 @@ class PokemonRepository constructor(
             liveData.apply { postValue(pokemons) }
         }
 
-    fun getLocalPokemons() = pokemonDao.getPokemonsList()
+    private fun getLocalPokemons() = pokemonDao.getPokemonsList()
 }

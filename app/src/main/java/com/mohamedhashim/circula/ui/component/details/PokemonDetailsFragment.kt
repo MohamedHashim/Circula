@@ -17,14 +17,17 @@ import kotlinx.android.synthetic.main.fragment_pokemon_details.*
  */
 class PokemonDetailsFragment : DataBindingFragment() {
 
+    private lateinit var binding: FragmentPokemonDetailsBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return binding<FragmentPokemonDetailsBinding>(
+        binding = binding(
             inflater, R.layout.fragment_pokemon_details, container
-        ).apply {
+        )
+        return binding.apply {
             pokemon = (requireArguments().get(getString(R.string.pokemon_key))) as Pokemon
         }.root
     }
@@ -33,9 +36,16 @@ class PokemonDetailsFragment : DataBindingFragment() {
         super.onViewCreated(view, savedInstanceState)
         initToolbar(toolbar, activity as AppCompatActivity)
     }
-    fun initToolbar(toolbar: Toolbar, activity: AppCompatActivity) {
+
+    private fun initToolbar(toolbar: Toolbar, activity: AppCompatActivity) {
         activity.setSupportActionBar(toolbar)
         activity.supportActionBar?.title = ""
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    // clear views references to fix memory leaks
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.unbind()
     }
 }

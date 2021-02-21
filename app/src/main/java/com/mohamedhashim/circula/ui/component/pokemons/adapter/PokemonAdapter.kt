@@ -1,16 +1,8 @@
 package com.mohamedhashim.circula.ui.component.pokemons.adapter
 
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
-import androidx.recyclerview.widget.RecyclerView
-import com.mohamedhashim.circula.BR
-import com.mohamedhashim.circula.R
 import com.mohamedhashim.circula.R.layout.item_pokemon
 import com.mohamedhashim.circula.data.dto.Pokemon
-import com.mohamedhashim.circula.databinding.ItemPokemonBinding
 import com.mohamedhashim.circula.ui.component.pokemons.viewholder.PokemonViewholder
 import com.skydoves.baserecyclerviewadapter.BaseAdapter
 import com.skydoves.baserecyclerviewadapter.SectionRow

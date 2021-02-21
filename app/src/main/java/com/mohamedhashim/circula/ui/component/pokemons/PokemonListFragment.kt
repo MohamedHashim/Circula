@@ -1,12 +1,11 @@
 package com.mohamedhashim.circula.ui.component.pokemons
 
-import android.content.Context
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.mohamedhashim.circula.R
 import com.mohamedhashim.circula.data.dto.Pokemon
+import com.mohamedhashim.circula.databinding.FragmentPokemonDetailsBinding
 import com.mohamedhashim.circula.databinding.FragmentPokemonListBinding
 import com.mohamedhashim.circula.ui.base.DataBindingFragment
 import com.mohamedhashim.circula.ui.base.bindings.bindAdapterPokemonsList
@@ -21,7 +20,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class PokemonListFragment : DataBindingFragment(), PokemonViewholder.Delegate {
 
     private val viewModel: PokemonListViewModel by viewModel()
-
+    private lateinit var binding: FragmentPokemonListBinding
     private val adapterPokemonList = PokemonAdapter(this)
 
     override fun onCreateView(
@@ -29,9 +28,10 @@ class PokemonListFragment : DataBindingFragment(), PokemonViewholder.Delegate {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return binding<FragmentPokemonListBinding>(
+        binding = binding(
             inflater, R.layout.fragment_pokemon_list, container
-        ).apply {
+        )
+        return binding.apply {
             viewModel = this@PokemonListFragment.viewModel
             lifecycleOwner = this@PokemonListFragment
             adapter = PokemonAdapter(this@PokemonListFragment)
@@ -43,7 +43,7 @@ class PokemonListFragment : DataBindingFragment(), PokemonViewholder.Delegate {
         showPokemons()
     }
 
-    fun showPokemons() {
+    private fun showPokemons() {
         rvPokemons.removeAllViewsInLayout()
         viewModel.pokemonListLiveData.value?.let {
             adapterPokemonList.addPokemonsList(it)
@@ -56,5 +56,10 @@ class PokemonListFragment : DataBindingFragment(), PokemonViewholder.Delegate {
             R.id.actionPokemonDetails,
             PokemonListViewModel.createArguments(pokemon)
         )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.unbind()
     }
 }
