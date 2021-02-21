@@ -4,4 +4,5 @@
     <string name="pokemon_name">pokemon name</string>
     <string name="pokemon_image">pokemon image</string>
     <string name="pokemon_key">Pokemon</string>
+    <string name="database">Pokemons.db</string>
 </resources>

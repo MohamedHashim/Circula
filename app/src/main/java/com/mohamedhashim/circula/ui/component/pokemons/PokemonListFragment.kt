@@ -1,7 +1,9 @@
 package com.mohamedhashim.circula.ui.component.pokemons
 
+import android.content.Context
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.mohamedhashim.circula.R
 import com.mohamedhashim.circula.data.dto.Pokemon

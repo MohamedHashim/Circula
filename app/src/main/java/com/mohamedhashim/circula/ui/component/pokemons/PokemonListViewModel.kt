@@ -15,12 +15,11 @@ class PokemonListViewModel constructor(
 ) : LiveCoroutinesViewModel() {
 
     var pokemonListLiveData: LiveData<List<Pokemon>>
-    val toastLiveData: MutableLiveData<String> = MutableLiveData()
 
     init {
         this.pokemonListLiveData =
             launchOnViewModelScope {
-                this.pokemonRepository.loadPokemonList { this.toastLiveData.postValue(it) }
+                this.pokemonRepository.loadPokemonList {}
             }
     }
 
