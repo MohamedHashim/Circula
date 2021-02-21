@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Circula</string>
+    <string name="pokemon_name">pokemon name</string>
+    <string name="pokemon_image">pokemon image</string>
 </resources>

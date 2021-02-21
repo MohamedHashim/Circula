@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mohamedhashim.circula.data.dto.Pokemon
 import com.mohamedhashim.circula.ui.component.pokemons.adapter.PokemonAdapter
 import com.skydoves.baserecyclerviewadapter.BaseAdapter
-import com.skydoves.whatif.whatIfNotNullOrEmpty
 
 /**
  * Created by Mohamed Hashim on 2/21/2021.
@@ -17,8 +16,8 @@ fun bindAdapter(view: RecyclerView, baseAdapter: BaseAdapter) {
 
 @BindingAdapter("adapterPokemonsList")
 fun bindAdapterPokemonsList(view: RecyclerView, pokemons: List<Pokemon>?) {
-    pokemons.whatIfNotNullOrEmpty {
+    if (!pokemons.isNullOrEmpty()) {
         val adapter = view.adapter as? PokemonAdapter
-        adapter?.addPokemonsList(it)
+        adapter?.addPokemonsList(pokemons)
     }
 }

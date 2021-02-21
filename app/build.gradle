@@ -84,9 +84,6 @@ dependencies {
     // cardView
     implementation 'androidx.cardview:cardview:1.0.0'
 
-    // whatIf
-    implementation "com.github.skydoves:whatif:1.0.4"
-
     // adapter
     api "com.github.skydoves:baserecyclerviewadapter:0.1.3"
 
