@@ -26,9 +26,9 @@ class PokemonListViewModel constructor(
 
     companion object {
         private const val PokemonKey = "Pokemon"
-        fun createArguments(Pokemon: Pokemon): Bundle {
+        fun createArguments(pokemon: Pokemon): Bundle {
             val bundle = Bundle()
-            bundle.putParcelable(PokemonKey, Pokemon)
+            bundle.putParcelable(PokemonKey, pokemon)
             return bundle
         }
     }

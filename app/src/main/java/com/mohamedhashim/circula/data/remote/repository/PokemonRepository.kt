@@ -21,7 +21,7 @@ class PokemonRepository constructor(private val pokemonClient: PokemonClient) {
                 when (response) {
                     is ApiResponse.Success -> {
                         response.data?.let { data ->
-                            pokemons = data.PokemonList
+                            pokemons = data.pokemons
                             liveData.apply { postValue(pokemons) }
                         }
                     }

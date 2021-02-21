@@ -12,22 +12,23 @@
         <variable
             name="adapter"
             type="com.mohamedhashim.circula.ui.component.pokemons.adapter.PokemonAdapter" />
-    </data>
 
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#CDDCEA">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/rvPokemons"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:paddingTop="5dp"
             app:adapter="@{adapter}"
-            app:adapterPokemonList="@{viewModel.pokemonListLiveData}"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:adapterPokemonsList="@{viewModel.pokemonListLiveData}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

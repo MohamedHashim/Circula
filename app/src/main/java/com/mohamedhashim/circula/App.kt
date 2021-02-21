@@ -2,6 +2,8 @@ package com.mohamedhashim.circula
 
 import android.app.Application
 import com.mohamedhashim.circula.di.networkModule
+import com.mohamedhashim.circula.di.repositoryModule
+import com.mohamedhashim.circula.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -16,7 +18,8 @@ class App : Application() {
         startKoin {
             androidContext(this@App)
             modules(networkModule)
-
+            modules(viewModelModule)
+            modules(repositoryModule)
         }
     }
 }

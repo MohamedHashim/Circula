@@ -1,29 +1,38 @@
 package com.mohamedhashim.circula.ui.component.pokemons.adapter
 
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.RecyclerView
+import com.mohamedhashim.circula.BR
 import com.mohamedhashim.circula.R
+import com.mohamedhashim.circula.R.layout.item_pokemon
 import com.mohamedhashim.circula.data.dto.Pokemon
+import com.mohamedhashim.circula.databinding.ItemPokemonBinding
+import com.mohamedhashim.circula.ui.component.pokemons.viewholder.PokemonViewholder
 import com.skydoves.baserecyclerviewadapter.BaseAdapter
 import com.skydoves.baserecyclerviewadapter.SectionRow
 
 /**
  * Created by Mohamed Hashim on 2/21/2021.
  */
-class PokemonAdapter (
-    private val delegate: PokemonViewHolder.Delegate
+class PokemonAdapter(
+    private val delegate: PokemonViewholder.Delegate
 ) : BaseAdapter() {
 
     init {
         addSection(ArrayList<Pokemon>())
     }
 
-    fun addPokemonList(pokemons: List<Pokemon>) {
+    fun addPokemonsList(pokemons: List<Pokemon>) {
         val section = sections()[0]
         section.addAll(pokemons)
         notifyItemRangeInserted(section.size - pokemons.size + 1, pokemons.size)
     }
 
-    override fun layout(sectionRow: SectionRow) = R.layout.item_pokemon
+    override fun layout(sectionRow: SectionRow) = item_pokemon
 
-    override fun viewHolder(layout: Int, view: View) = PokemonViewHolder(view, delegate)
+    override fun viewHolder(layout: Int, view: View) = PokemonViewholder(view, delegate)
 }
