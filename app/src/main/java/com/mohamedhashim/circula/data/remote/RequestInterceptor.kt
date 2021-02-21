@@ -1,5 +1,7 @@
 package com.mohamedhashim.circula.data.remote
 
+import com.mohamedhashim.circula.contentType
+import com.mohamedhashim.circula.contentTypeValue
 import okhttp3.Interceptor
 import okhttp3.Response
 
@@ -9,12 +11,11 @@ import okhttp3.Response
 class RequestInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
-        val originalUrl = originalRequest.url
 
-        val url = originalUrl.newBuilder().build()
-
-        val requestBuilder = originalRequest.newBuilder().url(url)
-        val request = requestBuilder.build()
+        val request = originalRequest.newBuilder()
+            .header(contentType, contentTypeValue)
+            .method(originalRequest.method, originalRequest.body)
+            .build()
 
         return chain.proceed(request)
     }
